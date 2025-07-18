@@ -4,5 +4,6 @@
 
 int main()
 {
+    cout << 'l';
     return 0;
 }

@@ -1,76 +1,72 @@
 #pragma once
 
-#include <vector>
+#include <string>
+#include <iostream>
 
 enum SHAPE
 {
     TRI = 3,
-    SQR,
-    PEN,
-    HEX,
-    HEP,
-    OCT,
-    POLY
+    REC,
+    PARA,
+    POLY,
+    CIR,
+    ELPS
 };
 
 class Shape
 {
 protected:
-    std::string shapeName;
-    SHAPE shapeType;
+    std::string mName;
+    SHAPE mType;
 public:
     Shape(const std::string& Name, SHAPE type);
     std::string getName();
-    SHAPE getShape();
-    virtual int periCal(SHAPE type) = 0;
-    virtual int areaCal(SHAPE type) = 0;
+    SHAPE getType();
+    virtual int periCal() = 0;
+    virtual int areaCal() = 0;
+    ~Shape();
 };
 
 class Tri : public Shape
 {
     Tri();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
+    int periCal();
+    int areaCal();
 };
 
-class Sqr : public Shape
+class Rec : public Shape
 {
-    Sqr();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
+    Rec();
+    int periCal();
+    int areaCal();
 };
 
-class Pen : public Shape
+class Para : public Shape
 {
-    Pen();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
-};
-
-class Hex : public Shape
-{
-    Hex();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
-};
-
-class Hep : public Shape
-{
-    Hep();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
-};
-
-class Oct : public Shape
-{
-    Oct();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
+    Para();
+    int periCal();
+    int areaCAl();
 };
 
 class Poly : public Shape
 {
     Poly();
-    int periCal(SHAPE type);
-    int areaCal(SHAPE type);
+    int periCal();
+    int areaCal();
 };
+
+class Cir : public Shape
+{
+    Cir();
+    int periCal();
+    int areaCal();
+};
+
+class Elps : public Shape
+{
+    Elps();
+    int periCal();
+    int areaCal();
+};
+
+void defShape(std::ostream os, std::istream is);
